@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="utf-8"/>
+  <title>CarbonIQ - Report</title>
+  <link rel="stylesheet" href="/styles.css"/>
+</head>
+<body>
+  <div class="container">
+
+    <div class="header">
+      <div class="brand">
+        <div class="logo"></div>
+        <div>
+          <h1>CarbonIQ Report</h1>
+          <div class="sub">Smart insights from your electricity usage</div>
+        </div>
+      </div>
+      <a class="link" href="/">Analyze another bill</a>
+    </div>
+
+    <!-- KPI Row -->
+    <div class="card" style="margin-bottom:16px;">
+      <div class="sectionTitle">Key Metrics</div>
+      <div class="kpis">
+        <div class="kpi">
+          <div class="label">Units (kWh)</div>
+          <div class="value" th:text="${report.extract.unitsKwh}">-</div>
+        </div>
+        <div class="kpi">
+          <div class="label">Bill Amount (₹)</div>
+          <div class="value" th:text="${report.extract.amount}">-</div>
+        </div>
+        <div class="kpi">
+          <div class="label">Carbon Footprint (kg CO₂)</div>
+          <div class="value" th:text="${report.carbonKg}">-</div>
+        </div>
+        <div class="kpi">
+          <div class="label">Rate / Unit (₹)</div>
+          <div class="value" th:text="${report.extract.ratePerUnit}">-</div>
+        </div>
+      </div>
+
+      <div class="hr"></div>
+
+      <span class="badge">
+        <span class="dot"></span>
+        Source: <span th:text="${report.extract.source}"></span>
+      </span>
+      <span class="badge" style="margin-left:8px;">
+        <span class="dot" style="background:var(--accent2)"></span>
+        Period: <span th:text="${report.extract.billingPeriod}"></span>
+      </span>
+      <span class="badge" style="margin-left:8px;">
+        <span class="dot" style="background:var(--warn)"></span>
+        Bill ID: <span th:text="${report.extract.billId}"></span>
+      </span>
+    </div>
+
+    <div class="grid">
+
+      <div class="card">
+        <div class="sectionTitle">Appliance Split (Estimated)</div>
+        <table class="table">
+          <tr><th>Appliance</th><th>kWh</th></tr>
+          <tr th:each="e : ${report.applianceSplitKwh}">
+            <td th:text="${e.key}"></td>
+            <td th:text="${e.value}"></td>
+          </tr>
+        </table>
+        <div class="muted" style="margin-top:10px;">
+          Inference without smart meter. Accuracy improves with more inputs (AC hours, family size, etc.).
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="sectionTitle">Recommendations</div>
+        <ul class="list">
+          <li th:each="r : ${report.recommendations}" th:text="${r}"></li>
+        </ul>
+        <div class="footerNote">
+          Recommendations are explainable rules based on usage + appliance hints. Extend by adding tariff slabs and seasonal factors.
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="sectionTitle">Solar Viability</div>
+        <div th:if="${report.solar.recommendedKw != null}">
+          <div class="kpis">
+            <div class="kpi">
+              <div class="label">Recommended Solar Size</div>
+              <div class="value"><span th:text="${report.solar.recommendedKw}"></span> kW</div>
+            </div>
+            <div class="kpi">
+              <div class="label">Estimated Cost</div>
+              <div class="value">₹<span th:text="${report.solar.estimatedCostInr}"></span></div>
+            </div>
+            <div class="kpi">
+              <div class="label">Monthly Savings</div>
+              <div class="value">₹<span th:text="${report.solar.estimatedMonthlySavingsInr}"></span></div>
+            </div>
+            <div class="kpi">
+              <div class="label">Payback</div>
+              <div class="value"><span th:text="${report.solar.paybackMonths}"></span> months</div>
+            </div>
+          </div>
+        </div>
+        <div th:if="${report.solar.recommendedKw == null}" class="muted">
+          Solar estimate needs valid extracted units + amount.
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="sectionTitle">Forecast</div>
+        <div th:if="${report.predictedNextMonthBillInr != null}">
+          <div class="kpi">
+            <div class="label">Predicted next-month bill</div>
+            <div class="value">₹<span th:text="${report.predictedNextMonthBillInr}"></span></div>
+          </div>
+
+          <!-- simple progress bar visual -->
+          <div class="progressWrap">
+            <div class="progressLabel">
+              <span>Trend</span><span>+3% (baseline)</span>
+            </div>
+            <div class="progress"><div style="width:60%"></div></div>
+          </div>
+
+          <div class="muted" style="margin-top:10px;">
+            Forecast is a basic model. Improve by storing monthly history and training a small regression.
+          </div>
+        </div>
+
+        <div th:if="${report.predictedNextMonthBillInr == null}" class="muted">
+          Forecast requires a valid extracted amount.
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</body>
+</html>

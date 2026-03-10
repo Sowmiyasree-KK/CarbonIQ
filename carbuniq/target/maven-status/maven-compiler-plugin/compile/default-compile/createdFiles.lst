@@ -1,0 +1,11 @@
+com\carbuniq\model\BillExtract.class
+com\carbuniq\controller\BillController.class
+com\carbuniq\service\OcrService.class
+com\carbuniq\service\CarbonIQService.class
+com\carbuniq\service\PdfTextService.class
+com\carbuniq\model\BillReport.class
+com\carbuniq\CarbonIQApplication.class
+com\carbuniq\util\JsonStore.class
+com\carbuniq\model\SolarResult.class
+com\carbuniq\util\BillParser.class
+com\carbuniq\util\IdUtil.class

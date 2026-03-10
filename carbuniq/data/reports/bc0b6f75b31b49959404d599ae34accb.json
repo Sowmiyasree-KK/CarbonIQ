@@ -1,0 +1,26 @@
+{
+  "extract" : {
+    "billId" : "bc0b6f75b31b49959404d599ae34accb",
+    "billingPeriod" : "Jan 2026",
+    "unitsKwh" : 245.0,
+    "amount" : 1460.0,
+    "ratePerUnit" : 5.959183673469388,
+    "source" : "OCR_IMAGE"
+  },
+  "carbonKg" : 200.9,
+  "applianceSplitKwh" : {
+    "AC" : 98.0,
+    "Geyser/Water Heater" : 12.25,
+    "Fridge" : 29.4,
+    "Lights/Fans" : 31.85,
+    "Others" : 73.5
+  },
+  "recommendations" : [ "AC optimization: set 24°C + sleep mode; can reduce AC energy by ~10–20%.", "Clean AC filters monthly to improve efficiency.", "Switch remaining bulbs to LED to reduce lighting energy significantly.", "Reduce standby power: unplug idle chargers / use a power strip." ],
+  "solar" : {
+    "recommendedKw" : 2.04,
+    "estimatedCostInr" : 112291.67,
+    "estimatedMonthlySavingsInr" : 1168.0,
+    "paybackMonths" : 96.14
+  },
+  "predictedNextMonthBillInr" : 1503.8
+}

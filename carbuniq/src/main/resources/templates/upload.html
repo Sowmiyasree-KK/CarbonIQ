@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <title>CarbonIQ - Upload</title>
+  <link rel="stylesheet" href="/styles.css"/>
+</head>
+<body>
+  <div class="container">
+
+    <div class="header">
+      <div class="brand">
+        <div class="logo"></div>
+        <div>
+          <h1>CarbonIQ</h1>
+          <div class="sub">Upload an electricity bill to get carbon + cost optimization insights.</div>
+        </div>
+      </div>
+      <span class="badge"><span class="dot"></span> Local-first • Privacy-friendly</span>
+    </div>
+
+    <div class="card">
+      <div class="sectionTitle">Upload Bill</div>
+
+      <form action="/upload" method="post" enctype="multipart/form-data">
+        <input class="input" type="file" name="file" accept=".pdf,.png,.jpg,.jpeg" required />
+
+        <div class="formRow">
+          <label class="toggle">
+            <input type="checkbox" name="hasAc" />
+            AC present
+          </label>
+          <label class="toggle">
+            <input type="checkbox" name="hasGeyser" />
+            Geyser present
+          </label>
+        </div>
+
+        <div class="formRow" style="margin-top:14px;">
+          <button class="btn" type="submit">Analyze Bill</button>
+        </div>
+      </form>
+
+      <div class="footerNote">
+        <b>Tip:</b> If your PDF is scanned and extraction fails, upload a clear JPG/PNG bill photo for OCR.
+        Keep the image straight and readable for best accuracy.
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>

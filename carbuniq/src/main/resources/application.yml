@@ -1,0 +1,12 @@
+server:
+  port: 8080
+
+carbuniq:
+  dataDir: "data"
+  uploadsDir: "data/uploads"
+  reportsDir: "data/reports"
+  # Set this to your local tessdata folder:
+  tesseractDataPath: "C:/Program Files/Tesseract-OCR/tessdata"
+  emissionFactorKgPerKwh: 0.82
+  solarCostPerKwInr: 55000
+  unitsPerKwPerMonth: 120

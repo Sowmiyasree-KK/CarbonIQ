@@ -1,0 +1,26 @@
+{
+  "extract" : {
+    "billId" : "5853daec314e40c1b6328500dd3a1fbe",
+    "billingPeriod" : "Jan 2026",
+    "unitsKwh" : 245.0,
+    "amount" : 1460.0,
+    "ratePerUnit" : 5.959183673469388,
+    "source" : "OCR_IMAGE"
+  },
+  "carbonKg" : 200.9,
+  "applianceSplitKwh" : {
+    "AC" : 24.5,
+    "Geyser/Water Heater" : 12.25,
+    "Fridge" : 29.4,
+    "Lights/Fans" : 31.85,
+    "Others" : 147.0
+  },
+  "recommendations" : [ "Switch remaining bulbs to LED to reduce lighting energy significantly.", "Reduce standby power: unplug idle chargers / use a power strip." ],
+  "solar" : {
+    "recommendedKw" : 2.04,
+    "estimatedCostInr" : 112291.67,
+    "estimatedMonthlySavingsInr" : 1168.0,
+    "paybackMonths" : 96.14
+  },
+  "predictedNextMonthBillInr" : 1503.8
+}

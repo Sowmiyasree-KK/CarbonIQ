@@ -1,0 +1,26 @@
+{
+  "extract" : {
+    "billId" : "20e97e02ab7e47e8a1c118e263cf5a25",
+    "billingPeriod" : "Unknown",
+    "unitsKwh" : 800.0,
+    "amount" : 5.0,
+    "ratePerUnit" : 0.00625,
+    "source" : "OCR_IMAGE"
+  },
+  "carbonKg" : 656.0,
+  "applianceSplitKwh" : {
+    "AC" : 320.0,
+    "Geyser/Water Heater" : 120.0,
+    "Fridge" : 96.0,
+    "Lights/Fans" : 104.0,
+    "Others" : 160.0
+  },
+  "recommendations" : [ "AC optimization: set 24°C + sleep mode; can reduce AC energy by ~10–20%.", "Clean AC filters monthly to improve efficiency.", "Use geyser timer and avoid keeping it ON continuously to reduce wastage.", "Switch remaining bulbs to LED to reduce lighting energy significantly.", "Reduce standby power: unplug idle chargers / use a power strip.", "High consumption detected: consider 5-star rated appliances for long-term savings." ],
+  "solar" : {
+    "recommendedKw" : 6.67,
+    "estimatedCostInr" : 366666.67,
+    "estimatedMonthlySavingsInr" : 4.0,
+    "paybackMonths" : 91666.67
+  },
+  "predictedNextMonthBillInr" : 5.15
+}
